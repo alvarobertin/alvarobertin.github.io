@@ -1,36 +1,4 @@
-const brands = [
-  {
-    iconName: "fish",
-    name: "Pescado",
-    color: "#ff0000"
-  },
-  {
-    iconName: "cow",
-    name: "Vaca",
-    color: "#ff0000"
-  },
-  {
-    iconName: "dog",
-    name: "Perro",
-    color: "#ff0000"
-  },
-  {
-    iconName: "horse",
-    name: "Caballo",
-    color: "#ff0000"
-  },
-  {
-    iconName: "cat",
-    name: "Gato",
-    color: "#ff0000"
-  },
-  {
-    iconName: "spider",
-    name: "Araña",
-    color: "#ff0000"
-  },
 
-];
 let correct = 0;
 let total = 0;
 const totalDraggableItems = 5;
