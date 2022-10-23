@@ -90,6 +90,7 @@ function drop(event) {
   const droppableElementBrand = event.target.getAttribute("data-brand");
   const isCorrectMatching = draggableElementBrand===droppableElementBrand;
   total++;
+  var error = document.getElementById("Error-h1");
   if(isCorrectMatching) {
     const draggableElement = document.getElementById(draggableElementBrand);
     event.target.classList.add("dropped");
@@ -97,6 +98,10 @@ function drop(event) {
     draggableElement.setAttribute("draggable", "false");
     event.target.innerHTML = `<i class="fa-solid fa-${draggableElementBrand}" style="color: ${draggableElement.style.color};"></i>`;
     correct++;  
+
+    error.innerHTML = "<span style='color: green;'>"+ "MUY BIEN</span>";
+  }else{
+    error.innerHTML = "<span style='color: red;'>"+ "Vuelve a intentarlo!</span>";
   }
   scoreSection.style.opacity = 0;
   setTimeout(() => {

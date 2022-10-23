@@ -1,36 +1,4 @@
-const brands = [
-  {
-    iconName: "square",
-    name: "Cuadrado",
-    color: "#FF5733"
-  },
-  {
-    iconName: "circle",
-    name: "Circulo",
-    color: "#FF5733"
-  },
-  {
-    iconName: "star",
-    name: "Estrella",
-    color: "#FF5733"
-  },
-  {
-    iconName: "heart",
-    name: "Corazon",
-    color: "#FF5733"
-  },
-  {
-    iconName: "hand",
-    name: "Mano",
-    color: "#FF5733"
-  },
-  {
-    iconName: "unlock",
-    name: "Candado",
-    color: "#FF5733"
-  },
 
-];
 let correct = 0;
 let total = 0;
 const totalDraggableItems = 5;
@@ -49,7 +17,7 @@ let droppableElements;
 initiateGame();
 
 function initiateGame() {
-  const randomDraggableBrands = generateRandomItemsArray(totalDraggableItems, brands);
+  const randomDraggableBrands = generateRandomItemsArray(totalDraggableItems, brands2);
   const randomDroppableBrands = totalMatchingPairs<totalDraggableItems ? generateRandomItemsArray(totalMatchingPairs, randomDraggableBrands) : randomDraggableBrands;
   const alphabeticallySortedRandomDroppableBrands = [...randomDroppableBrands].sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   
@@ -59,12 +27,13 @@ function initiateGame() {
       <div class="row"> <i class="fa-solid fa-${randomDraggableBrands[i].iconName} draggable" draggable="true" style="color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"></i> </div>
     `);
   }
-  
+  //<span class="label">${alphabeticallySortedRandomDroppableBrands[i].name}</span>
   // Create "matching-pairs" and append to DOM
   for(let i=0; i<alphabeticallySortedRandomDroppableBrands.length; i++) {
     matchingPairs.insertAdjacentHTML("beforeend", `
       <div class="matching-pair">
-        <span class="label">${alphabeticallySortedRandomDroppableBrands[i].name}</span>
+        
+        <span class="label"> <i class="fa-solid fa-${alphabeticallySortedRandomDroppableBrands[i].iconName} icono" style="color: black"></i> </span>
         <span class="droppable" data-brand="${alphabeticallySortedRandomDroppableBrands[i].iconName}"></span>
       </div>
     `);
@@ -122,6 +91,7 @@ function drop(event) {
   const droppableElementBrand = event.target.getAttribute("data-brand");
   const isCorrectMatching = draggableElementBrand===droppableElementBrand;
   total++;
+  var error = document.getElementById("Error-h1");
   if(isCorrectMatching) {
     const draggableElement = document.getElementById(draggableElementBrand);
     event.target.classList.add("dropped");
@@ -129,6 +99,10 @@ function drop(event) {
     draggableElement.setAttribute("draggable", "false");
     event.target.innerHTML = `<i class="fa-solid fa-${draggableElementBrand}" style="color: ${draggableElement.style.color};"></i>`;
     correct++;  
+
+    error.innerHTML = "<span style='color: green;'>"+ "MUY BIEN</span>";
+  }else{
+    error.innerHTML = "<span style='color: red;'>"+ "Vuelve a intentarlo!</span>";
   }
   scoreSection.style.opacity = 0;
   setTimeout(() => {
