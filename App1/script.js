@@ -32,7 +32,8 @@ function initiateGame() {
   for(let i=0; i<alphabeticallySortedRandomDroppableBrands.length; i++) {
     matchingPairs.insertAdjacentHTML("beforeend", `
       <div class="matching-pair">
-        <span class="label">${alphabeticallySortedRandomDroppableBrands[i].name}</span>
+
+        <span class="label"> <i class="fa-solid fa-${alphabeticallySortedRandomDroppableBrands[i].iconName} icono" style="color: black"></i> </span>
         <span class="droppable" data-brand="${alphabeticallySortedRandomDroppableBrands[i].iconName}"></span>
       </div>
     `);
@@ -110,6 +111,10 @@ function drop(event) {
     scoreSection.style.opacity = 1;
   }, 200);
   if(correct===Math.min(totalMatchingPairs, totalDraggableItems)) { // Game Over!!
+    
+
+    $('#myModal').toggle();
+
     playAgainBtn.style.display = "block";
     setTimeout(() => {
       playAgainBtn.classList.add("play-again-btn-entrance");

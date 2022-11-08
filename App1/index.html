@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="./style.css">
  
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script>
 </head>
 <body>
 
@@ -35,6 +37,26 @@
     </div>  
   </div>
 </div>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModal-label">¡Felicitaciones! Ganaste</h4>
+          </div>
+  
+          <div class="modal-body">
+            <img src="feliz.jpg" width="180px" height="180px" class="image">
+          </div>
+  
+          <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-success btn-default" onclick="$('#myModal').toggle();">Cerrar</button>
+          </div>
+        </div>
+  </div>
+
+
+
 <!-- partial -->
 <script type="text/javascript" src="data1.js"></script> 
 <script type="text/javascript" src="script.js"></script> 
