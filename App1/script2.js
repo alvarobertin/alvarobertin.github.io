@@ -111,6 +111,9 @@ function drop(event) {
     scoreSection.style.opacity = 1;
   }, 200);
   if(correct===Math.min(totalMatchingPairs, totalDraggableItems)) { // Game Over!!
+
+    $('#myModal').toggle();
+
     playAgainBtn.style.display = "block";
     setTimeout(() => {
       playAgainBtn.classList.add("play-again-btn-entrance");
