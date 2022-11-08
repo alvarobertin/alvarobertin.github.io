@@ -19,10 +19,28 @@
     </div>
     
     <form id="settings" action="">
-      <p>Tamaño del laberinto en pixeles</p>
-      <input id="size" type="number" value="500"/></br>
+      <label>Tamaño del laberinto</label>
+      <select id="size">
+        <option value="400">Pequeño</option>
+        <option value="500">Mediano</option>
+        <option value="600">Grande</option>
+      </select>
+      </br>
+      <!-- <input id="size" type="number" value="500"/></br>-->
+
+      <label>Dificultad</label>
+      <select id="number">
+        <option value="10">Facil</option>
+        <option value="20">Medio</option>
+        <option value="30">Dificil</option>
+        <option value="40">Extremo</option>
+      </select>
+      </br>
+
+      <!--
       <p>Cantidad de filas y columnas en el laberinto</p>
       <input id="number" type="number" value="10" /></br>
+      -->
       <input id="submit" type="submit" value="Generar Laberinto">
     </form>
   
